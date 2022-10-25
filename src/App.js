@@ -1,16 +1,14 @@
 import { Toaster } from 'react-hot-toast';
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
-import Home from './Shared/Navbar/Home/Home';
-import Navbar from './Shared/Navbar/Navbar';
+import { router } from './routes/routes';
+
 
 function App() {
   return (
     <div>
-    
-    <Navbar></Navbar>
-    <Home></Home>
-      
-     <Toaster />
+    <RouterProvider router={router}></RouterProvider>
+    <Toaster />
     </div>
   );
 }
