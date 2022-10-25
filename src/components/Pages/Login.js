@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 
 const Login = () => {
@@ -44,6 +45,7 @@ const Login = () => {
               
             />
           </div>
+          <p  className='text-sm mb-4'> New Here?  <Link to="/register" className='text-blue-500 '><span className='underline'>Please register !!</span></Link></p>
           <div class="flex items-start mb-6">
             <div class="flex items-center h-5">
               <input
