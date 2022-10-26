@@ -37,7 +37,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to="/cources"
+                to="/courses"
                 aria-label="Our product"
                 title="Our product"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
