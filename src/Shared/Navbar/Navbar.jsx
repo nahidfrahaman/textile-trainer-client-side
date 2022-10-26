@@ -1,12 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import mylogo from "../../assets/logo.png";
-import { AuthContext } from "../../context/Context";
 
 const Navbar = () => {
 
-  const {name}= useContext(AuthContext)
-  console.log(name)
+  // const {userdetails}= useContext(AuthContext)
+  // console.log(userdetails)
+  
   
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
@@ -69,14 +69,16 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/login"
-                  className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                  aria-label="Sign up"
-                  title="Sign up"
-                >
-                  LogIN
-                </Link>
+               {/* {
+                userdetails.uid ? <p>{userdetails.displayName}</p> :  <Link
+                to="/login"
+                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                aria-label="Sign up"
+                title="Sign up"
+              >
+                LogIN
+              </Link>
+               } */}
               </li>
             </ul>
             <div className="lg:hidden">
