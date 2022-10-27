@@ -1,12 +1,15 @@
 import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { AuthContext } from "../../context/Context";
 
 const Login = () => {
   const navigate = useNavigate()
-  
+
+  const location= useLocation()
+  const from = location.state?.from?.pathname || '/'
+  console.log(from)
   const {logIn}=useContext(AuthContext)
 
   const [userInfo, setUserInfo]= useState({
@@ -43,14 +46,14 @@ const Login = () => {
     const user = userCredential.user;
     console.log(user);
     toast.success('Successfully logged!')
-    navigate('/')
+    navigate(from, {replace:true})
     
     
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    console.log(errorMessage)
+    toast.error(errorMessage)
   });
  }
 

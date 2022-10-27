@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import mylogo from "../../assets/logo.png";
 import { AuthContext } from "../../context/Context";
 
+
 const Navbar = () => {
 
   const {userdetails,LogOut}= useContext(AuthContext)
+  console.log(userdetails)
   const user=userdetails?.displayName
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +17,7 @@ const Navbar = () => {
     LogOut()
     toast.success('Successfully logOut!')
   }
-
+  
   return (
     <div>
       <div className="bg-gray-900">
@@ -79,14 +81,9 @@ const Navbar = () => {
                 userdetails?.uid ? 
                 <>
                 <li>
-              <Link
-                  
-                  aria-label="About us"
-                  title="About us"
-                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-                >
-                  {user}
-                </Link>
+                <div>
+                <img  src={userdetails.photoURL} className="w-8 h-8 rounded-full bg-slate-50" alt="" title={user} />
+                </div>
               </li>
               <li>
               <Link
@@ -110,7 +107,15 @@ const Navbar = () => {
                   LogIN
                 </Link>
               </li>
+              
               }
+             <li>
+             <label for="default-toggle" class="inline-flex relative items-center cursor-pointer">
+             <input type="checkbox" value="" id="default-toggle" class="sr-only peer"/>
+           <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+          <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Toggle me</span>
+  </label>
+             </li>
               
             </ul>
             <div className="lg:hidden">

@@ -46,15 +46,17 @@ export const router = createBrowserRouter([
             {
                 path:'/courseoption/:id',
                 loader: async ({params})=>{
-                    return fetch(`http://localhost:5000/courseoption/${params.id}`)
+                    return fetch(`https://textile-trainer-server.vercel.app/courseoption/${params.id}`)
                 },
-                element:<PrivateRoute>
-                              <Courseoption></Courseoption>
-                        </PrivateRoute>
+                element: <Courseoption></Courseoption>,
+                    
             },
             {
-                path:'/checkout',
-                element: <CheckOut></CheckOut>
+                path:'/checkout/:id',
+                loader: async ({params})=>{
+                    return fetch(`https://textile-trainer-server.vercel.app/checkout/${params.id}`)
+                },
+                element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
             }
 
         ]
