@@ -1,5 +1,6 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import { AuthContext } from '../../context/Context';
@@ -77,7 +78,7 @@ const Resgistration = () => {
       // Signed in 
       const user = userCredential.user;
       console.log(user)
-      alert('user login succes')
+      toast.success('Successfully user Created!')
       // ...
       updateName(userInfo.name, userInfo.photoUrl)
     })
@@ -85,7 +86,7 @@ const Resgistration = () => {
       const errorCode = error.code;
       const errorMessage = error.message;
       // ..
-      console.log(errorCode, errorMessage)
+      toast.error({errorMessage})
     });
      
     setUserInfo({email:'', password:'',name:'',})
@@ -100,12 +101,13 @@ const Resgistration = () => {
       
       // The signed-in user info.
       const user = result.user;
-      console.log(user)
+      toast.success('Successfully user Created!')
       // ...
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
+      toast.error({errorMessage})
       // The email of the user's account used.
       const email = error.customData.email;
       // The AuthCredential type that was used.
@@ -181,7 +183,7 @@ const Resgistration = () => {
                 required
                 
               />
-              <p>error</p>
+              
             </div>
             <div className="mb-4">
             {

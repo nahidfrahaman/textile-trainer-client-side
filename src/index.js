@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Toaster } from 'react-hot-toast';
 import App from './App';
 import Context from './context/Context';
 import './index.css';
@@ -10,6 +11,7 @@ root.render(
   <React.StrictMode>
     <Context>
     <App />
+    <Toaster />
     </Context>
    </React.StrictMode>
 );

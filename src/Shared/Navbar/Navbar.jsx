@@ -1,14 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import mylogo from "../../assets/logo.png";
+import { AuthContext } from "../../context/Context";
 
 const Navbar = () => {
 
-  // const {userdetails}= useContext(AuthContext)
-  // console.log(userdetails)
-  
-  
+  const {userdetails,LogOut}= useContext(AuthContext)
+  const user=userdetails?.displayName
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  const handlelogout=()=>{
+    LogOut()
+    toast.success('Successfully logOut!')
+  }
+
   return (
     <div>
       <div className="bg-gray-900">
@@ -68,18 +75,43 @@ const Navbar = () => {
                   Blog
                 </Link>
               </li>
-              <li>
-               {/* {
-                userdetails.uid ? <p>{userdetails.displayName}</p> :  <Link
-                to="/login"
-                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                aria-label="Sign up"
-                title="Sign up"
-              >
-                LogIN
-              </Link>
-               } */}
+              {
+                userdetails?.uid ? 
+                <>
+                <li>
+              <Link
+                  
+                  aria-label="About us"
+                  title="About us"
+                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                >
+                  {user}
+                </Link>
               </li>
+              <li>
+              <Link
+                  onClick={handlelogout}
+                  to="/login"
+                  aria-label="About us"
+                  title="About us"
+                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                >
+                 Logout
+                </Link>
+              </li>
+            </>
+                :  <li>
+                <Link
+                  to="/login"
+                  aria-label="Product pricing"
+                  title="Product pricing"
+                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                >
+                  LogIN
+                </Link>
+              </li>
+              }
+              
             </ul>
             <div className="lg:hidden">
               <button
