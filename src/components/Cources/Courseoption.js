@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 
+const ref = React.createRef();
+
 const Courseoption = () => {
     const data= useLoaderData()
     const {details,image,title,rating,id}=data
