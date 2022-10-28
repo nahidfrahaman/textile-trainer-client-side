@@ -5,6 +5,7 @@ import Home from '../components/Home/Home';
 import Blog from "../components/Pages/Blog";
 import CheckOut from "../components/Pages/CheckOut";
 import Errorpage from "../components/Pages/Errorpage";
+import Faq from "../components/Pages/Faq";
 import Login from "../components/Pages/Login";
 import Resgistration from "../components/Pages/Resgistration";
 import Main from "./Main";
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
                     return fetch(`https://textile-trainer-server.vercel.app/checkout/${params.id}`)
                 },
                 element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
+            },
+            {
+                path:"/faq",
+                element:<Faq></Faq>
             }
 
         ]
