@@ -1,6 +1,6 @@
 # Website Name: Textile Trainer #
 
- [Textile Trainer]("https://textile-trainer.web.app/") and http://www.google.fr/ or <http://example.com/>
+ [Textile Trainer](https://textile-trainer.web.app/") and or 
 
 
 ## Technoloy used in this project
