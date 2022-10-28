@@ -4,10 +4,10 @@
 
 
 ## Technoloy used in this project
-*Frame work react
-*CSS libery 
-  *tailwind css
-  *flobite
+- Frame work react
+- CSS libery 
+   - tailwind css
+   - flobite
 *React router 
 *react-hot-toast
 *React-pdf-reder
