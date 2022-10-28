@@ -1,172 +1,101 @@
-import React from "react";
+import React, { useState } from "react";
+
+const Item = ({ title, children }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+      <div className="border-b">
+        <button
+          type="button"
+          aria-label="Open item"
+          title="Open item"
+          className="flex items-center justify-between w-full p-4 focus:outline-none"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <p className="text-lg font-medium">{title}</p>
+          <svg
+            viewBox="0 0 24 24"
+            className={`w-3 text-gray-600 transform transition-transform duration-200 ${
+              isOpen ? 'rotate-180' : ''
+            }`}
+          >
+            <polyline
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeMiterlimit="10"
+              points="2,7 12,17 22,7"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+        {isOpen && (
+          <div className="p-4 pt-0">
+            <p className="text-gray-700">{children}</p>
+          </div>
+        )}
+      </div>
+    );
+  };
 
 const Blog = () => {
   return (
-    <div>
-      <div id="accordion-collapse" data-accordion="collapse">
-        <h2 id="accordion-collapse-heading-1">
-          <button
-            type="button"
-            className="flex items-center justify-between w-full p-5 font-medium text-left border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
-            data-accordion-target="#accordion-collapse-body-1"
-            aria-expanded="true"
-            aria-controls="accordion-collapse-body-1"
-          >
-            <span>What is Flowbite?</span>
-            <svg
-              data-accordion-icon=""
-              className="w-6 h-6 rotate-180 shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-          </button>
-        </h2>
-        <div
-          id="accordion-collapse-body-1"
-          className=""
-          aria-labelledby="accordion-collapse-heading-1"
-        >
-          <div className="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
-            <p className="mb-2 text-gray-500 dark:text-gray-400">
-              Flowbite is an open-source library of interactive components built
-              on top of Tailwind CSS including buttons, dropdowns, modals,
-              navbars, and more.
-            </p>
-            <p className="text-gray-500 dark:text-gray-400">
-              Check out this guide to learn how to{" "}
-              <a
-                href="/docs/getting-started/introduction/"
-                className="text-blue-600 dark:text-blue-500 hover:underline"
+    <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ">
+      <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
+        <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+          <div>
+            
+          </div>
+          <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+            <span class="relative inline-block">
+              <svg
+                viewBox="0 0 52 24"
+                fill="currentColor"
+                class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block"
               >
-                get started
-              </a>{" "}
-              and start developing websites even faster with components on top
-              of Tailwind CSS.
-            </p>
-          </div>
+                <defs>
+                  <pattern
+                    id="232db96b-4aa2-422f-9086-5a77996d1df1"
+                    x="0"
+                    y="0"
+                    width=".135"
+                    height=".30"
+                  >
+                    <circle cx="1" cy="1" r=".7" />
+                  </pattern>
+                </defs>
+                <rect
+                  fill="url(#232db96b-4aa2-422f-9086-5a77996d1df1)"
+                  width="52"
+                  height="24"
+                />
+              </svg>
+              <span class="relative">The</span>
+            </span>{' '}
+            Blog 
+          </h2>
+          
         </div>
-        <h2 id="accordion-collapse-heading-2">
-          <button
-            type="button"
-            className="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
-            data-accordion-target="#accordion-collapse-body-2"
-            aria-expanded="false"
-            aria-controls="accordion-collapse-body-2"
-          >
-            <span>Is there a Figma file available?</span>
-            <svg
-              data-accordion-icon=""
-              className="w-6 h-6 shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-          </button>
-        </h2>
-        <div
-          id="accordion-collapse-body-2"
-          className="hidden"
-          aria-labelledby="accordion-collapse-heading-2"
-        >
-          <div className="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700">
-            <p className="mb-2 text-gray-500 dark:text-gray-400">
-              Flowbite is first conceptualized and designed using the Figma
-              software so everything you see in the library has a design
-              equivalent in our Figma file.
-            </p>
-            <p className="text-gray-500 dark:text-gray-400">
-              Check out the{" "}
-              <a
-                href="https://flowbite.com/figma/"
-                className="text-blue-600 dark:text-blue-500 hover:underline"
-              >
-                Figma design system
-              </a>{" "}
-              based on the utility classes from Tailwind CSS and components from
-              Flowbite.
-            </p>
-          </div>
-        </div>
-        <h2 id="accordion-collapse-heading-3">
-          <button
-            type="button"
-            className="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
-            data-accordion-target="#accordion-collapse-body-3"
-            aria-expanded="false"
-            aria-controls="accordion-collapse-body-3"
-          >
-            <span>
-              What are the differences between Flowbite and Tailwind UI?
-            </span>
-            <svg
-              data-accordion-icon=""
-              className="w-6 h-6 shrink-0"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-          </button>
-        </h2>
-        <div
-          id="accordion-collapse-body-3"
-          className="hidden"
-          aria-labelledby="accordion-collapse-heading-3"
-        >
-          <div className="p-5 font-light border border-t-0 border-gray-200 dark:border-gray-700">
-            <p className="mb-2 text-gray-500 dark:text-gray-400">
-              The main difference is that the core components from Flowbite are
-              open source under the MIT license, whereas Tailwind UI is a paid
-              product. Another difference is that Flowbite relies on smaller and
-              standalone components, whereas Tailwind UI offers sections of
-              pages.
-            </p>
-            <p className="mb-2 text-gray-500 dark:text-gray-400">
-              However, we actually recommend using both Flowbite, Flowbite Pro,
-              and even Tailwind UI as there is no technical reason stopping you
-              from using the best of two worlds.
-            </p>
-            <p className="mb-2 text-gray-500 dark:text-gray-400">
-              Learn more about these technologies:
-            </p>
-            <ul className="pl-5 text-gray-500 list-disc dark:text-gray-400">
-              <li>
-                <a
-                  href="https://flowbite.com/pro/"
-                  className="text-blue-600 dark:text-blue-500 hover:underline"
-                >
-                  Flowbite Pro
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://tailwindui.com/"
-                  rel="nofollow"
-                  className="text-blue-600 dark:text-blue-500 hover:underline"
-                >
-                  Tailwind UI
-                </a>
-              </li>
-            </ul>
-          </div>
+        <div class="space-y-4">
+          <Item title="What is cors?">
+          Cross-origin resource sharing (CORS) is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain ...
+          </Item>
+          <Item title="what are you using firebase?Authentication option?">
+          The Firebase Realtime Database lets you build rich, collaborative applications by allowing secure access to the database directly from client-side code. Data is persisted locally, and even while offline, realtime events continue to fire, giving the end user a responsive experience.
+          <br /> <br />
+          Auth0, MongoDB, Passport, Okta, and Firebase are the most popular alternatives and competitors to Firebase Authentication.
+
+          </Item>
+          <Item title="How does private route works?">
+          The react private route component renders child components ( children ) if the user is logged in. If not logged in the user is redirected to the /login page with the return url passed in the location state property.
+          </Item>
+          <Item title="what is node? How does node works">
+          Node.js is an open-source, cross-platform JavaScript runtime environment and library for running web applications outside the client'
+
+          <br />
+          <br />
+          It is a used as backend service where javascript works on the server-side of the application. This way javascript is used on both frontend and backend. Node. js runs on chrome v8 engine which converts javascript code into machine code,
+          </Item>
         </div>
       </div>
     </div>
