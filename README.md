@@ -1,6 +1,6 @@
 # Website Name: Textile Trainer #
 
- [Textile Trainer](https://textile-trainer.web.app/") and or 
+Live site link: [Textile Trainer](https://textile-trainer.web.app/")  
 
 
 ## Technoloy used in this project
@@ -20,4 +20,4 @@
   - google login
   - facbook login
   - dynamic error
-  - 
+  
