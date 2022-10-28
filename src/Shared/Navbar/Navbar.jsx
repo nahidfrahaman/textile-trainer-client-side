@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import mylogo from "../../assets/logo.png";
 import { AuthContext } from "../../context/Context";
+import './Navbar.css';
 
 
 const Navbar = () => {
@@ -81,9 +82,16 @@ const Navbar = () => {
                 userdetails?.uid ? 
                 <>
                 <li>
-                <div>
-                <img  src={userdetails.photoURL} className="w-8 h-8 rounded-full bg-slate-50" alt="" title="name"/>
+                <div className="tooltip-container">
+                <div className="img-container">
+                <img  src={userdetails.photoURL} className="w-8 h-8 rounded-full bg-slate-50" alt="" />
                 </div>
+                <div>
+                  <p className="text-tooltip">{user}</p>
+                </div>
+
+                </div>
+                
               </li>
               <li>
               <Link

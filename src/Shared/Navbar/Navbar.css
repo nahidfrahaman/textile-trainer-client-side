@@ -1,0 +1,22 @@
+.tooltip-container{
+    display: flex; 
+    position: relative;
+}
+.img-container{
+    display: inline;
+}
+.text-tooltip{
+    display: inline;
+    visibility: hidden;
+    color: white;
+    background-color: rgb(93, 93, 224);
+    position: absolute;
+    border-radius: 5px;
+    top: -10px;
+    padding: 2px;
+   
+}
+
+.tooltip-container:hover .text-tooltip{
+    visibility: visible;
+}
